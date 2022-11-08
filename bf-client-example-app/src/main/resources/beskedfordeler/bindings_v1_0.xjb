@@ -1,0 +1,16 @@
+<jaxb:bindings
+        xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        jaxb:version="2.1">
+
+    <jaxb:bindings schemaLocation="xsd/Beskedkuvert.xsd" node="/xsd:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="dk.kombit.bf.beskedkuvert"/>
+        </jaxb:schemaBindings>
+        
+       <jaxb:bindings node="//xsd:schema/xsd:element[@type='besked:BeskeddataType']" >
+            <jaxb:dom />
+       </jaxb:bindings>
+    </jaxb:bindings>
+
+</jaxb:bindings>

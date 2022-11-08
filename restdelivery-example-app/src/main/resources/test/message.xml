@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns4:ModtagBeskedInput xmlns="urn:oio:sagdok:3.0.0" xmlns:ns2="urn:oio:besked:kuvert:1.0" xmlns:ns3="http://www.w3.org/2000/09/xmldsig#" xmlns:ns4="urn:oio:sts:1.0.0">
+    <ns2:Haendelsesbesked>
+        <ns2:BeskedId>
+            <UUIDIdentifikator>248ce14c-a863-4fb5-9e6f-7df9ea850809</UUIDIdentifikator>
+        </ns2:BeskedId>
+        <ns2:BeskedVersion>1.0</ns2:BeskedVersion>
+        <ns2:Beskedkuvert>
+            <ns2:Filtreringsdata>
+                <ns2:Beskedtype>
+                    <UUIDIdentifikator>c8673551-981e-4be1-b1a6-180cf6fa61f0</UUIDIdentifikator>
+                </ns2:Beskedtype>
+            </ns2:Filtreringsdata>
+            <ns2:Leveranceinformation>
+                <ns2:TransaktionsId>
+                    <UUIDIdentifikator>c8673551-981e-4be1-b1a6-180cf6fa61f0</UUIDIdentifikator>
+                </ns2:TransaktionsId>
+            </ns2:Leveranceinformation>
+        </ns2:Beskedkuvert>
+        <ns2:Beskeddata>
+            <tst:dfd xmlns:tst="http://tst.com" xmlns:bfr="urn:oio:sts:beskedfordeler:1.0.0" xmlns:ns4="urn:oio:sts:beskedfordeler:vaerdiliste:1.0.0" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope" xmlns:urn1="urn:oio:besked:kuvert:1.0" xmlns:urn2="urn:oio:sagdok:3.0.0" xmlns:xd="http://www.w3.org/2000/09/xmldsig#">client test message</tst:dfd>
+        </ns2:Beskeddata>
+    </ns2:Haendelsesbesked>
+</ns4:ModtagBeskedInput>

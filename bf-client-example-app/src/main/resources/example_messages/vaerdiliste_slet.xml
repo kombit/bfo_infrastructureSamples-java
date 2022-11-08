@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<urn:SletInput xmlns:urn="urn:oio:sts:beskedfordeler:vaerdiliste:1.0.0" xmlns:urn1="urn:oio:sagdok:3.0.0">
+    <!--type: string-->
+    <urn1:UUIDIdentifikator>45e3b4b2-536b-4c00-84a3-7a7727ee5e7c</urn1:UUIDIdentifikator>
+    <!--Optional:-->
+    <!--type: string-->
+    <urn1:NoteTekst>delete vaerdiliste note text</urn1:NoteTekst>
+</urn:SletInput>

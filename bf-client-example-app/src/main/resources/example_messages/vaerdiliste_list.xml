@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<urn:ListInput xmlns:urn="urn:oio:sts:beskedfordeler:vaerdiliste:1.0.0" xmlns:urn1="urn:oio:sagdok:3.0.0">
+    <!--1 or more repetitions:-->
+    <!--type: string-->
+    <urn1:UUIDIdentifikator>00000000-0000-0000-0000-000000000001</urn1:UUIDIdentifikator>
+    <urn1:UUIDIdentifikator>00000000-0000-0000-0000-000000000002</urn1:UUIDIdentifikator>
+    <urn1:UUIDIdentifikator>8ba39b94-afe7-4ad7-9d8e-ef5453c21a07</urn1:UUIDIdentifikator>
+    <urn1:UUIDIdentifikator>c661eac8-b771-4944-aa1f-ceffd3fe1d4c</urn1:UUIDIdentifikator>
+    <urn1:UUIDIdentifikator>45e3b4b2-536b-4c00-84a3-7a7727ee5e7c</urn1:UUIDIdentifikator>
+    <urn1:UUIDIdentifikator>a0562094-7a50-48f8-9719-3a8dd2a5fb71</urn1:UUIDIdentifikator>
+    <!--Optional:-->
+<!--    <urn1:VirkningFraFilter>-->
+<!--        &lt;!&ndash;You have a CHOICE of the next 2 items at this level&ndash;&gt;-->
+<!--        &lt;!&ndash;type: dateTime&ndash;&gt;-->
+<!--        <urn1:TidsstempelDatoTid>2020-01-23T15:44:07</urn1:TidsstempelDatoTid>-->
+<!--        &lt;!&ndash;type: boolean&ndash;&gt;-->
+<!--    </urn1:VirkningFraFilter>-->
+<!--    &lt;!&ndash;Optional:&ndash;&gt;-->
+<!--    <urn1:VirkningTilFilter>-->
+<!--        &lt;!&ndash;You have a CHOICE of the next 2 items at this level&ndash;&gt;-->
+<!--        &lt;!&ndash;type: dateTime&ndash;&gt;-->
+<!--        <urn1:TidsstempelDatoTid>2020-08-19T19:27:14+02:00</urn1:TidsstempelDatoTid>-->
+<!--        &lt;!&ndash;type: boolean&ndash;&gt;-->
+<!--    </urn1:VirkningTilFilter>-->
+<!--    &lt;!&ndash;Optional:&ndash;&gt;-->
+<!--    <urn1:RegistreringFraFilter>-->
+<!--        &lt;!&ndash;You have a CHOICE of the next 2 items at this level&ndash;&gt;-->
+<!--        &lt;!&ndash;type: dateTime&ndash;&gt;-->
+<!--        <urn1:TidsstempelDatoTid>2020-05-22T03:02:49+02:00</urn1:TidsstempelDatoTid>-->
+<!--        &lt;!&ndash;type: boolean&ndash;&gt;-->
+<!--    </urn1:RegistreringFraFilter>-->
+<!--    &lt;!&ndash;Optional:&ndash;&gt;-->
+<!--    <urn1:RegistreringTilFilter>-->
+<!--        &lt;!&ndash;You have a CHOICE of the next 2 items at this level&ndash;&gt;-->
+<!--        &lt;!&ndash;type: dateTime&ndash;&gt;-->
+<!--        <urn1:TidsstempelDatoTid>2020-12-21T12:32:42+01:00</urn1:TidsstempelDatoTid>-->
+<!--        &lt;!&ndash;type: boolean&ndash;&gt;-->
+<!--    </urn1:RegistreringTilFilter>-->
+</urn:ListInput>
