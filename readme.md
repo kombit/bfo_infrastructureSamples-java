@@ -1,6 +1,6 @@
 ## 1. Introduction
 
-These code examples are made to help you build integrations with [Fælleskommunal Beskedfordeler] (https://docs.kombit.dk/komponent/beskedfordeler) (BFO). It demonstrates how to:
+These code examples are made to help you build integrations with ([Fælleskommunal Beskedfordeler] (https://docs.kombit.dk/komponent/beskedfordeler)) (BFO). It demonstrates how to:
 
 * Generate code classes from XSD files ([see chapter 5](#5-code-generation-from-xsd-files))
 * Get a token from Security Token Service ([WS-Trust implementation](https://cxf.apache.org/docs/ws-trust.html))
