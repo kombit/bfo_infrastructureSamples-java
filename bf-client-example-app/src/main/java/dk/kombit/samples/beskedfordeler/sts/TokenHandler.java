@@ -1,5 +1,6 @@
 package dk.kombit.samples.beskedfordeler.sts;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.Instant;
@@ -35,7 +36,7 @@ public class TokenHandler {
      */
     public static String getToken() throws IOException {
         final Properties p = new Properties();
-        try (InputStream fin = TokenHandler.class.getResourceAsStream("/application.properties")) {
+        try (InputStream fin = new FileInputStream("src/main/resources/application.properties")) {
             p.load(fin);
         }
 

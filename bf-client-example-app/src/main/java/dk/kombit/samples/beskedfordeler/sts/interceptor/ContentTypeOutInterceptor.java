@@ -18,6 +18,5 @@ public class ContentTypeOutInterceptor extends AbstractSoapInterceptor {
     @Override
     public void handleMessage(final SoapMessage soapMessage) throws Fault {
         soapMessage.put(Message.CONTENT_TYPE, "application/soap+xml; charset=utf-8");
-//        soapMessage.put(Message.CONTENT_TYPE, "text/xml; charset=utf-8");
     }
 }
