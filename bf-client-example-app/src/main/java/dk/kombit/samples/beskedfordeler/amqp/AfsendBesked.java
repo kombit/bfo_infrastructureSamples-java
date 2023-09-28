@@ -71,7 +71,7 @@ public class AfsendBesked {
 	private static String anvendersystemId = SamplesHelper.ANVENDERSYSTEM_ID;
 	private static String messageFile = SamplesHelper.MESSAGE_FILE;
 
-	private static boolean overrideCVRNumber = false;
+	private static boolean overrideCVRNumber = SamplesHelper.OVERRIDE_CVR_NR_FLAG;
 	private static boolean issueNewMessageUUID = true;
 
 	public static void main(String[] args) throws Exception {

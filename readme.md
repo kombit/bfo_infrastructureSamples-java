@@ -1,6 +1,6 @@
 ## 1. Introduction
 
-These code examples are made to help you build integrations with ([Fælleskommunal Beskedfordeler](https://docs.kombit.dk/komponent/beskedfordeler)) (BFO). It demonstrates how to:
+These code examples are made to help you build integrations with Fælleskommunal Beskedfordeler (BFO). It demonstrates how to:
 
 * Generate code classes from XSD files ([see chapter 5](#5-code-generation-from-xsd-files))
 * Get a token from Security Token Service ([WS-Trust implementation](https://cxf.apache.org/docs/ws-trust.html))
@@ -46,31 +46,31 @@ The code examples consist of two different java projects:
             * `amqp/AfhentBesked.java` - main class for receiving messages (**Afhent**)
             * `amqp/AfsendBesked.java` - main class for sending messages (**Afsend**)
         * `soap` package contains classes responsible for integration with web services via SOAP:
-          * `soap/SoapClient.java` - main class for web services code example
+            * `soap/SoapClient.java` - main class for web services code example
         * `sts` package contains classes responsible for obtaining token form Security Token Service
         * `utils` package contains helper classes
     * `resources/`:
-      * `beskedfordeler` folder contains XSD files that define the schema for communication with BFO ([see chapter 5](#5-code-generation-from-xsd-files))
-      * `example_messages` folder contains a valid example message that can be sent to BFO for testing purposes
-      * `wsdl` folder contains web service definition for CXF Security Token Service communication ([see chapter 6.1](#61-wsdl-for-cxf-security-token-service))
-      * `application.properties` - main config file for **bf-client-example-app**
-      * `logback.xml` - logback file (set up logging level here)
+        * `beskedfordeler` folder contains XSD files that define the schema for communication with BFO ([see chapter 5](#5-code-generation-from-xsd-files))
+        * `example_messages` folder contains a valid example message that can be sent to BFO for testing purposes
+        * `wsdl` folder contains web service definition for CXF Security Token Service communication ([see chapter 6.1](#61-wsdl-for-cxf-security-token-service))
+        * `application.properties` - main config file for **bf-client-example-app**
+        * `logback.xml` - logback file (set up logging level here)
 * **restdelivery-example-app** which contains example for integration with BFO via REST delivery endpoint method. [Eclipse Jetty](https://www.eclipse.org/jetty/) servlet container implementation is used.
-  * java classes (`dk/kombit/restdelivery/`):
-    * `RestDeliveryApp.java` - main class for receiving message (Modtag besked)
-    * `/config` package contains classes responsible for configuring secure connection
-    * `/connectors` package contains class responsible for creating server connectors and verify host certificate
-    * `/exceptions` package contains custom exception classes
-    * `/marshaller` package contains class responsible for marshalling
-    * `/servlets` package contains class responsible for Jetty Servlet implementation
-    * `/unmarshaller` package contains class responsible for unmarshalling
-    * `/utils` package contains helper class
-  * `resources/`:
-    * `beskedfordeler` folder contains XSD files that defines schema for communication with BFO ([see chapter 5](#5-code-generation-from-xsd-files))
-    * `certs` folder contains certificates required by code examples
-    * `test` folder contains example BFO message 
-    * `application.properties` - main config file for **restdelivery-example-app**
-    * `logback.xml` - logback file (set up logging level there)
+    * java classes (`dk/kombit/restdelivery/`):
+        * `RestDeliveryApp.java` - main class for receiving message (Modtag besked)
+        * `/config` package contains classes responsible for configuring secure connection
+        * `/connectors` package contains class responsible for creating server connectors and verify host certificate
+        * `/exceptions` package contains custom exception classes
+        * `/marshaller` package contains class responsible for marshalling
+        * `/servlets` package contains class responsible for Jetty Servlet implementation
+        * `/unmarshaller` package contains class responsible for unmarshalling
+        * `/utils` package contains helper class
+    * `resources/`:
+        * `beskedfordeler` folder contains XSD files that defines schema for communication with BFO ([see chapter 5](#5-code-generation-from-xsd-files))
+        * `certs` folder contains certificates required by code examples
+        * `test` folder contains example BFO message
+        * `application.properties` - main config file for **restdelivery-example-app**
+        * `logback.xml` - logback file (set up logging level there)
 
 Config files must be edited before you run code examples. Please edit the section between the **BEGIN for edit** and **END for edit** marks with appropriate parameters.
 Please notice, that for the 'send message to BFO via AMQP (Afsend)' example, the `safewhere.token.request.applysTo` parameter must be
@@ -95,7 +95,7 @@ In order to receive messages from BFO via AMQP the following steps must be perfo
    `./mvnw clean package`  
    Generated executables can be found in `target/jars` folder.
 4. Run <code>java -jar .\target\jars\afhentbesked-client-1.0.jar</code>.
-**Disclaimer:** The included code example receives messages from a static Dueslag which is shared amongst all instances of the code samples. If multiple systems run these code examples at the same time, even if you put a message in the Dueslag in order to try and retrieve it another system might receive retrieve it before you do. If you believe you are having this issue, we recommend that you follow the [Kom godt i gang](https://digitaliseringskataloget.dk/kom-godt-i-gang-vejledninger) guide on how to set up a service agreement and your own dueslag, and edit `application.properties` accordingly.
+   **Disclaimer:** The included code example receives messages from a static Dueslag which is shared amongst all instances of the code samples. If multiple systems run these code examples at the same time, even if you put a message in the Dueslag in order to try and retrieve it another system might receive retrieve it before you do. If you believe you are having this issue, we recommend that you follow the [Kom godt i gang](https://digitaliseringskataloget.dk/kom-godt-i-gang-vejledninger) guide on how to set up a service agreement and your own dueslag, and edit `application.properties` accordingly.
 
 #### 4.3 Sending messages to BFO via AMQP - Afsend example (build and run)
 In order to send messages to BFO via AMQP the following steps must be performed:
@@ -127,10 +127,10 @@ In order to run a local endpoint and send an example message to it, the followin
    Generated executables can be found in `target` folder.
 4. Run <code>java -jar .\target\restdelivery-example-app-1.0.jar</code>.
 5. Restdelivery-example-app can expose a `/push` endpoint on the following ports:
-      * port `443` for secure connection via TLS/SSL - use only when you have correct certificates registered
-      * port `9044` for unsecure connection - can be used for demonstration purposes without any certificate with the following cUrl request (go to the `resources/test` folder and type):  
-           `curl -d "@message.xml" -H "Content-Type: text/xml;charset=UTF-8" -X POST http://localhost:9044/push`  
-      then press enter. Example message recived from BFO and acknowledge message fo BFO can be found in restdelivery-example-app logs 
+    * port `443` for secure connection via TLS/SSL - use only when you have correct certificates registered
+    * port `9044` for unsecure connection - can be used for demonstration purposes without any certificate with the following cUrl request (go to the `resources/test` folder and type):  
+      `curl -d "@message.xml" -H "Content-Type: text/xml;charset=UTF-8" -X POST http://localhost:9044/push`  
+      then press enter. Example message recived from BFO and acknowledge message fo BFO can be found in restdelivery-example-app logs
 
 #### 4.5 Integration with web services in BFO via SOAP - Vaerdiliste CRUD operations example (build and run)
 In order to test web services in BFO via SOAP the following steps must be performed:

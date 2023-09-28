@@ -1,6 +1,7 @@
 package dk.kombit.samples.beskedfordeler.utils;
 
 import javax.xml.namespace.QName;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -10,7 +11,7 @@ import java.util.Properties;
  */
 public class ClientProperties {
 
-    private static final String PROPERTIES_NAME = "/application.properties";
+    private static final String PROPERTIES_FILE = "src/main/resources/application.properties";
     private static ClientProperties clientProperties;
     private final Properties properties;
 
@@ -41,6 +42,7 @@ public class ClientProperties {
     private static final String MESSAGE_FILE = "message.file";
     private static final String ANVENDERSYSTEM_ID="anvendersystem.id";
     private static final String DUESLAG_ID="dueslag.id";
+    private static final String OVERRIDE_CVR_NR="overrideCVRNumber";
 
     /**
      * Method creates a new instance of ClientProperties
@@ -59,11 +61,10 @@ public class ClientProperties {
      */
     private ClientProperties() {
         properties = new Properties();
-
-        try (InputStream inputStream = getClass().getResourceAsStream(PROPERTIES_NAME)) {
+        try (InputStream inputStream = new FileInputStream(PROPERTIES_FILE)) {
             properties.load(inputStream);
         } catch (IOException e) {
-            throw new RuntimeException("Unable to read " + PROPERTIES_NAME);
+            throw new RuntimeException("Unable to read " + PROPERTIES_FILE);
         }
     }
 
@@ -143,6 +144,10 @@ public class ClientProperties {
 
     public String getDueslagId() {
         return properties.getProperty(DUESLAG_ID);
+    }
+
+    public Boolean getOverrideCvrNrFlag() {
+        return Boolean.parseBoolean(properties.getProperty(OVERRIDE_CVR_NR));
     }
 
 }
