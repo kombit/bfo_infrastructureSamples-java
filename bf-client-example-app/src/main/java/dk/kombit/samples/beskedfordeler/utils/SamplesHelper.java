@@ -74,6 +74,7 @@ public class SamplesHelper {
 
 	private static final String TRUSTSTORE_FILENAME = clientProperties.getTruststoreFilename();
 	private static final String TRUSTSTORE_PASSWORD = clientProperties.getTruststorePassword();
+	public static final Boolean OVERRIDE_CVR_NR_FLAG = clientProperties.getOverrideCvrNrFlag();
 
 	public static final ClassLoader classLoader = SamplesHelper.class.getClassLoader();
 

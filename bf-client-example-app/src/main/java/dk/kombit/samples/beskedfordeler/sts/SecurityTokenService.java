@@ -100,7 +100,6 @@ public class SecurityTokenService {
         client.setWsdlLocation(cryptoProperties.getProperty("wsdl.file"));
         client.setEndpointName(
                 "{http://schemas.microsoft.com/ws/2008/06/identity/securitytokenservice}CertificateWSTrustBinding_IWSTrust13Sync");
-                //"{http://schemas.microsoft.com/ws/2008/06/identity/securitytokenservice}LibertySimpleSoapBinding_IWSTrust13Sync");
         client.setKeyType("http://docs.oasis-open.org/ws-sx/ws-trust/200512/PublicKey");
         client.setWspNamespace("http://schemas.xmlsoap.org/ws/2004/09/policy");
         client.setAllowRenewing(false);
