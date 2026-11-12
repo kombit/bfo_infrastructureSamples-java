@@ -5,6 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import javax.net.ssl.KeyManager;
@@ -37,6 +38,7 @@ import dk.kombit.samples.beskedfordeler.utils.SimpelPersistering;
  */
 public class AfhentBesked {
 	private static final Logger LOGGER = LoggerFactory.getLogger(AfhentBesked.class);
+	private static final long LISTEN_DURATION_HOURS = 6;
 
 	private static String decodedToken;
 	private static Connection conn;
@@ -47,31 +49,37 @@ public class AfhentBesked {
 
     public static void main(String[] args) throws Exception {
     	LOGGER.info("main: Startup time: {}", (new Date()));
-
-		LOGGER.info("main: Fetching token...");
-		decodedToken = TokenHandler.getToken();
-    	
 		LOGGER.debug("dueslag = {}", dueslagId);
+		decodedToken = TokenHandler.getToken();
 
-		LOGGER.info("main: Opening connection...");
-        openConnection();
+		while (!Thread.currentThread().isInterrupted()) {
+			try {
+				LOGGER.info("main: Fetching token...");
 
-    	LOGGER.info("main: Processing messages...");
-        processMessages();
+				LOGGER.info("main: Opening connection...");
+				openConnection();
+
+				handleMessage();
+				LOGGER.info("handleMessage(): Waiting for messages...");
+				Thread.sleep(TimeUnit.HOURS.toMillis(LISTEN_DURATION_HOURS));
+			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
+				LOGGER.info("main: Interrupted while waiting to rotate connection");
+			} catch (Exception e) {
+				LOGGER.error("main: Caught exception during listen cycle", e);
+				try {
+					Thread.sleep(TimeUnit.MINUTES.toMillis(1));
+				} catch (InterruptedException interruptedException) {
+					Thread.currentThread().interrupt();
+					LOGGER.info("main: Interrupted while waiting to retry connection");
+				}
+			} finally {
+				closeConnection();
+			}
+		}
 
     	LOGGER.info("main: Exit time: {}", (new Date()));
     }
-
-	private static void processMessages() {
-        try {
-			LOGGER.info("processMessages(): Waiting for messages...");
-			//handleIncomingMessage();
-			handleMessage();
-
-		} catch (Exception e) {
-			LOGGER.error("processMessages(): Caught exception while handling messages",e);
-		}
-	}
 
 	/**
 	 * DeliverCallback implementation.
@@ -126,15 +134,12 @@ public class AfhentBesked {
 				String messageString = new String(body, StandardCharsets.UTF_8);
 
 				LOGGER.info("handleMessage(): Received message body\n{}", messageString);
-
 				// Example of simple persistence of the message
 				persistMessage(messageString);
 
-				// Acknowledge a single delivery
+				// Acknowledge a delivery
 				channel.basicAck(deliveryTag, false);
-
-				// Close connection after handling first message - to simplify testing process
-				closeConnection();
+				LOGGER.info("Listening for messages...");
 			}
 		};
 		channel.basicConsume(dueslagId, autoAck, defaultConsumer);
@@ -176,10 +181,17 @@ public class AfhentBesked {
         // Close AMPQ connection when no used anymore (reuse same connection for multiple messages for performance)
     	LOGGER.debug("Closing connection");
     	try {
-	        channel.close();
-	        conn.close();
+	        if (channel != null && channel.isOpen()) {
+	        	channel.close();
+	        }
+	        if (conn != null && conn.isOpen()) {
+	        	conn.close();
+	        }
     	} catch (Exception e) {
     		LOGGER.warn("Caught exception closing connection",e);
+	    } finally {
+	    	channel = null;
+	    	conn = null;
     	}
     }
 
