@@ -115,7 +115,7 @@ This code example does not interact with the real BFO in any way, it is only an 
 This code example shows what a message from BFO looks like when the endpoint receives it, and it shows what the endpoint
 responds with to let BFO know that the message was successfully received. The endpoint in this code example is also capable of doing
 a 2-way TLS handshake if the sender of the message connects to port 443 instead of the default 9044, but TLS requires certificates
-custom to your instance for it to work and therefore does not work out of the box. The code can still be inspected to see how the handshake is performed. Which port is exposed is configured in `application.properties` and only one port can be exposed at a time.
+custom to your instance for it to work and therefore does not work out of the box. The code can still be inspected to see how the handshake is performed. Set which port is exposed in `application.properties`, only one port can be exposed at a time.
 **Disclaimer:** Port 9044 must NEVER be exposed in a production environment. BF only allows secure communication on port 443.
 In order to run a local endpoint and send an example message to it, the following steps must be performed:
 1. Navigate to the restdelivery-example-app java project
@@ -162,4 +162,13 @@ Web service definition for CXF Security Token Service communication can be found
 Nevertheless, token signing service certificate can be found there under X509Certificate section.
 
 #### 6.2 Additional documentation
-Additional information (e.g. how to set up a **Serviceaftale** for the **Modtag** service) can be fount in the [**Kom godt i gang - Fælleskommunal Beskedfordeler**](https://docs.kombit.dk/latest/ba48e791) document.
+Additional information (e.g. how to set up a **Serviceaftale** for the **Modtag** service) can be found in the [**Kom godt i gang - Fælleskommunal Beskedfordeler**](https://docs.kombit.dk/latest/ba48e791) document.
+
+### 6.3 Troubleshooting
+If you encounter problems when generating the executable jar file, such as missing `.class` files, you can solve this by killing all currently running java processes, and deleting the `target` directory. This can be achieved by running the following commands.
+<code>taskkill /F /IM java.exe</code>
+<code>Remove-Item target -Recurse -Force</code>
+and the following commands for Unix systems
+<code>pkill -9 java</code>
+<code>rm -rf target</code>
+Now you are guaranteed to get a healthy .jar file.

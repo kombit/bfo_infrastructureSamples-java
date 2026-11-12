@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified"
+        targetNamespace="urn:oio:sts:beskedfordeler:vaerdiliste:1.0.0"
+        xmlns:oio="urn:oio:definitions:1.0.0"
+        xmlns:tns="urn:oio:sts:beskedfordeler:vaerdiliste:1.0.0"
+        xmlns:sd="urn:oio:sagdok:3.0.0"
+        oio:mapping="urn:oio:sagdok:MPD:3.0.0"
+        >
+
+    <import namespace = "urn:oio:sagdok:3.0.0" schemaLocation="1.1/SagDokObjekt.xsd"/>
+    <include schemaLocation="VaerdiListe.xsd"/>
+    
+    <element name="ImportInput" type="tns:ImportInputType" oio:definition="urn:oio:tns:vaerdilisteimportinput:ADD:2.0.0"/>
+    <complexType name="ImportInputType" oio:definition="urn:oio:tns:vaerdilisteimportinput:ADD:2.0.0">
+        <complexContent>
+            <extension base="sd:ImportInputType">
+                <sequence>
+                    <element ref="tns:Vaerdiliste" oio:content="vaerdiliste"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="ImportOutput" type="tns:RegistreringOutputType" oio:definition="urn:oio:tns:vaerdilisteimportoutput:ASDD:2.0.0"/>
+    
+    <element name="PassiverInput" type="sd:UuidNoteInputType" oio:definition="urn:oio:tns:vaerdilistepassiverinput:ASDD:1.0.0"/>
+    
+    <element name="PassiverOutput" type="tns:RegistreringOutputType" oio:definition="urn:oio:tns:vaerdilistepassiveroutput:ASDD:1.0.0"/>
+    
+    <element name="SletInput" type="sd:UuidNoteInputType" oio:definition="urn:oio:tns:vaerdilistesletinput:ASDD:1.0.0"/>
+    
+    <element name="SletOutput" type="tns:RegistreringOutputType" oio:definition="urn:oio:tns:vaerdilistesletoutput:ASDD:1.0.0"/>
+    
+    <element name="OpretInput" type="tns:OpretInputType" oio:definition="urn:oio:tns:vaerdilisteopretinput:ADD:2.0.0"/>
+    <complexType name="OpretInputType" oio:definition="urn:oio:tns:vaerdilisteopretinput:ADD:2.0.0">
+        <complexContent>
+            <extension base="sd:OpretInputType">
+                <sequence>
+                    <element ref="tns:AttributListe" oio:content="attributter"/>
+                    <element ref="tns:TilstandListe" oio:content="tilstande"/>
+                    <element ref="tns:RelationListe" oio:content="relationer"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="OpretOutput" type="tns:OpretOutputType" oio:definition="urn:oio:tns:vaerdilisteopretoutput:ADD:2.0.0"/>
+    <complexType name="OpretOutputType" oio:definition="urn:oio:tns:vaerdilisteopretoutput:ADD:2.0.0">
+        <complexContent>
+            <extension base="sd:BasicOutputType">
+                <sequence>
+                    <element ref="tns:Vaerdiliste" minOccurs="0" oio:content="arkiv"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="RetInput" type="tns:RetInputType" oio:definition="urn:oio:tns:vaerdilisteretinput:ADD:2.0.0"/>
+    <complexType name="RetInputType" oio:definition="urn:oio:tns:vaerdilisteretinput:ADD:2.0.0">
+        <complexContent>
+            <extension base="sd:RetInputType">
+                <sequence>
+                    <element ref="tns:AttributListe" minOccurs="0" oio:content="attributter"/>
+                    <element ref="tns:TilstandListe" minOccurs="0" oio:content="tilstande"/>
+                    <element ref="tns:RelationListe" minOccurs="0" oio:content="relationer"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="RetOutput" type="tns:RegistreringOutputType" oio:definition="urn:oio:tns:vaerdilisteretoutput:ASDD:1.0.0"/>
+    
+    <element name="LaesInput" type="sd:LaesInputType" oio:definition="urn:oio:tns:vaerdilistelaesinput:ASDD:1.0.0"/>
+    
+    <element name="LaesOutput" type="tns:LaesOutputType" oio:definition="urn:oio:tns:vaerdilistelaesoutput:ADD:2.0.0"/>
+    <complexType name="LaesOutputType" oio:definition="urn:oio:tns:vaerdilistelaesoutput:ADD:2.0.0">
+        <complexContent>
+            <extension base="sd:BasicOutputType">
+                <sequence>
+                    <element ref="tns:LaesResultat" minOccurs="0" oio:content="laesresultat"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="ListInput" type="sd:ListInputType" oio:definition="urn:oio:tns:vaerdilistelistinput:ASDD:1.0.0"/>
+    
+    <element name="ListOutput" type="tns:ListOutputType" oio:definition="urn:oio:tns:vaerdilistelistoutput:ADD:2.0.0"/>
+    <complexType name="ListOutputType" oio:definition="urn:oio:tns:vaerdilistelistoutput:ADD:2.0.0">
+        <complexContent>
+            <extension base="sd:ListOutputType">
+                <sequence>
+                    <element ref="tns:LaesResultat" minOccurs="0" maxOccurs="unbounded" oio:content="laesresultat"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="SoegInput" type="tns:SoegInputType" oio:definition="urn:oio:tns:vaerdilistesoeginput:ADD:2.0.0"/>
+    <complexType name="SoegInputType" oio:definition="urn:oio:tns:vaerdilistesoeginput:ADD:2.0.0">
+        <complexContent>
+            <extension base="sd:SoegInputType">
+                <sequence>
+                    <element ref="tns:SoegObjekt" minOccurs="0" oio:content="soeg"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="SoegOutput" type="sd:SoegOutputType" oio:definition="urn:oio:tns:vaerdilistesoegoutput:ASDD:1.0.0"/>
+    
+     <!-- STS -->
+    <element name="RegistreringBesked" type="tns:RegistreringBeskedType" oio:definition="urn:oio:tns:vaerdilisteregistreringbesked:ADD:1.0.0"/>
+    <complexType name="RegistreringBeskedType" oio:definition="urn:oio:tns:vaerdilisteregistreringbesked:ADD:1.0.0">
+        <sequence>
+            <element name="ObjektID" type="sd:UnikIdType" oio:definition="urn:oio:sagdok:referenceid:ASDD:1.0.0"/>
+            <element ref="tns:Registrering" minOccurs="1" oio:content="registrering"/>
+        </sequence>
+    </complexType>
+    
+    <element name="RegistreringOutput" type="tns:RegistreringOutputType" oio:definition="urn:oio:tns:vaerdilisteregistreringoutput:ADD:1.0.0"/>
+    <complexType name="RegistreringOutputType" oio:definition="urn:oio:tns:vaerdilisteregistreringoutput:ADD:1.0.0">
+        <complexContent>
+            <extension base="sd:BasicOutputType">
+                <sequence>
+                    <element ref="tns:Registrering" minOccurs="0" oio:content="registrering"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="LaesResultat" type="tns:LaesResultatType" oio:definition="urn:oio:tns:vaerdilistelaesresultat:ADD:2.0.0"/>
+    <complexType name="LaesResultatType" oio:definition="urn:oio:tns:vaerdilistelaesresultat:ADD:2.0.0">
+        <choice>
+            <element ref="tns:Registrering" oio:content="registrering"/>
+            <element ref="tns:FiltreretOejebliksbillede" oio:content="filtreretoejebliksbillede"/>
+        </choice>
+    </complexType>
+
+    <element name="SoegObjekt" type="tns:SoegObjektType" oio:definition="urn:oio:tns:vaerdilistesoegobjekt:ADD:1.0.0"/>
+    <complexType name="SoegObjektType" oio:definition="urn:oio:tns:vaerdilistesoegobjekt:ADD:1.0.0">
+        <complexContent>
+            <extension base="sd:SoegSagDokObjektType">
+                <sequence>
+                    <element ref="tns:SoegAttributListe" minOccurs="0" oio:content="attributter"/>
+                    <element ref="tns:SoegTilstandListe" minOccurs="0" oio:content="tilstande"/>
+                    <element ref="tns:SoegRelationListe" minOccurs="0" oio:content="relationer"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="FiltreretOejebliksbillede" type="tns:FiltreretOejebliksbilledeType" oio:definition="urn:oio:tns:vaerdilistefiltreretoejebliksbillede:ADD:1.0.0"/>
+    <complexType name="FiltreretOejebliksbilledeType" oio:definition="urn:oio:tns:vaerdilistefiltreretoejebliksbillede:ADD:1.0.0">
+        <complexContent>
+            <extension base="sd:LaesFiltreretOutputType">
+                <sequence>
+                    <element ref="tns:AttributListe" oio:content="attributter"/>
+                    <element ref="tns:TilstandListe" oio:content="tilstande"/>
+                    <element ref="tns:RelationListe" oio:content="relationer"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <element name="SoegAttributListe" type="tns:SoegAttributListeType" oio:definition="urn:oio:tns:vaerdilistesoegattributliste:ADD:2.0.0"/>
+    <complexType name="SoegAttributListeType" oio:definition="urn:oio:tns:vaerdilistesoegattributliste:ADD:2.0.0">
+        <sequence>
+            <element ref="tns:SoegEgenskab" minOccurs="0" maxOccurs="unbounded" oio:content="egenskaber"/>
+            <element ref="sd:LokalUdvidelse" minOccurs="0" oio:content="lokaludvidelse"/>
+        </sequence>
+    </complexType>
+
+    <element name="SoegTilstandListe" type="tns:SoegTilstandListeType" oio:definition="urn:oio:tns:vaerdilistesoegtilstandliste:ADD:2.0.0"/>
+    <complexType name="SoegTilstandListeType" oio:definition="urn:oio:tns:vaerdilistesoegtilstandliste:ADD:2.0.0">
+        <sequence>
+            <element ref="sd:LokalUdvidelse" minOccurs="0" oio:content="lokaludvidelse"/>
+        </sequence>
+    </complexType>
+
+    <element name="SoegRelationListe" type="tns:SoegRelationListeType" oio:definition="urn:oio:tns:vaerdilistesoegrelationliste:ADD:2.0.0"/>
+    <complexType name="SoegRelationListeType" oio:definition="urn:oio:tns:vaerdilistesoegrelationliste:ADD:2.0.0">
+        <sequence>
+        </sequence>
+    </complexType>
+
+    <element name="SoegEgenskab" type="tns:SoegEgenskabType" oio:definition="urn:oio:tns:vaerdilistesoegegenskab:ADD:1.0.0"/>
+    <complexType name="SoegEgenskabType" oio:definition="urn:oio:tns:vaerdilistesoegegenskab:ADD:1.0.0">
+        <sequence>
+            <element ref="sd:BrugervendtNoegleTekst" minOccurs="0" oio:content="brugervendtnoegle"/>
+            <element name="Vaerdiliste" type="tns:VaerdiElementType" minOccurs="0" oio:content="vaerdiliste"/>
+            <element ref="sd:SoegVirkning" minOccurs="0" oio:content="virkning"/>
+        </sequence>
+    </complexType>
+
+    <element name="TilfoejVaerdierInput" type="tns:TilfoejVaerdierInputType" oio:definition="urn:oio:tns:tilfoejvaerdierinput:ADD:2.0.0"/>
+    <complexType name="TilfoejVaerdierInputType" oio:definition="urn:oio:tns:tilfoejvaerdierinputtype:ADD:2.0.0">
+        <sequence>
+            <element ref="sd:UUIDIdentifikator" oio:content="uuid"/>
+            <element name="Vaerdier" minOccurs="0" maxOccurs="unbounded" type="string" />
+        </sequence>
+    </complexType>
+    
+    <element name="TilfoejVaerdierOutput" type="tns:TilfoejVaerdierOutputType" oio:definition="urn:oio:tns:tilfoejvaerdieroutput:ADD:2.0.0"/>
+    <complexType name="TilfoejVaerdierOutputType" oio:definition="urn:oio:tns:tilfoejvaerdieroutputtype:ADD:2.0.0">
+        <complexContent>
+            <extension base="sd:BasicOutputType">
+            </extension>
+        </complexContent>
+    </complexType>
+    
+    <element name="FjernVaerdierInput" type="tns:FjernVaerdierInputType" oio:definition="urn:oio:tns:fjernvaerdierinput:ADD:2.0.0"/>
+    <complexType name="FjernVaerdierInputType" oio:definition="urn:oio:tns:fjernvaerdierinputtype:ADD:2.0.0">
+        <sequence>
+            <element ref="sd:UUIDIdentifikator" oio:content="uuid"/>
+            <element name="Vaerdier" minOccurs="0" maxOccurs="unbounded" type="string" />
+        </sequence>
+    </complexType>
+    
+    <element name="FjernVaerdierOutput" type="tns:FjernVaerdierOutputType" oio:definition="urn:oio:tns:fjernvaerdieroutput:ADD:2.0.0"/>
+    <complexType name="FjernVaerdierOutputType" oio:definition="urn:oio:tns:fjernvaerdieroutputtype:ADD:2.0.0">
+        <complexContent>
+            <extension base="sd:BasicOutputType">
+            </extension>
+        </complexContent>
+    </complexType>
+
+</schema>

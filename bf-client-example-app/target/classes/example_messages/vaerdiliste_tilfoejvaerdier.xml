@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<urn:TilfoejVaerdierInput xmlns:urn="urn:oio:sts:beskedfordeler:vaerdiliste:1.0.0" xmlns:urn1="urn:oio:sagdok:3.0.0">
+    <!--type: string-->
+    <urn1:UUIDIdentifikator>45e3b4b2-536b-4c00-84a3-7a7727ee5e7c</urn1:UUIDIdentifikator>
+    <!--Zero or more repetitions:-->
+    <!--type: string-->
+    <urn:Vaerdier>00000000-3333-4444-0000-000000000010</urn:Vaerdier>
+    <urn:Vaerdier>00000000-5555-0000-0000-000000000010</urn:Vaerdier>
+</urn:TilfoejVaerdierInput>

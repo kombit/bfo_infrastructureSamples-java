@@ -1,0 +1,175 @@
+
+package oio.besked.kuvert._1;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+import oio.sagdok._3_0.TidspunktType;
+
+
+/**
+ * <p>Java class for BeskedkuvertType complex type.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * 
+ * <pre>
+ * &lt;complexType name="BeskedkuvertType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element ref="{urn:oio:besked:kuvert:1.0}Filtreringsdata"/&gt;
+ *         &lt;element ref="{urn:oio:besked:kuvert:1.0}Leveranceinformation"/&gt;
+ *         &lt;element ref="{urn:oio:besked:kuvert:1.0}Modtagerhandling" minOccurs="0"/&gt;
+ *         &lt;element ref="{urn:oio:besked:kuvert:1.0}GyldighedFra" minOccurs="0"/&gt;
+ *         &lt;element ref="{urn:oio:besked:kuvert:1.0}GyldighedTil" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "BeskedkuvertType", propOrder = {
+    "filtreringsdata",
+    "leveranceinformation",
+    "modtagerhandling",
+    "gyldighedFra",
+    "gyldighedTil"
+})
+public class BeskedkuvertType {
+
+    @XmlElement(name = "Filtreringsdata", required = true)
+    protected FiltreringsdataType filtreringsdata;
+    @XmlElement(name = "Leveranceinformation", required = true)
+    protected LeveranceinformationType leveranceinformation;
+    @XmlElement(name = "Modtagerhandling")
+    protected ModtagerhandlingType modtagerhandling;
+    @XmlElement(name = "GyldighedFra")
+    protected TidspunktType gyldighedFra;
+    @XmlElement(name = "GyldighedTil")
+    protected TidspunktType gyldighedTil;
+
+    /**
+     * Gets the value of the filtreringsdata property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link FiltreringsdataType }
+     *     
+     */
+    public FiltreringsdataType getFiltreringsdata() {
+        return filtreringsdata;
+    }
+
+    /**
+     * Sets the value of the filtreringsdata property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link FiltreringsdataType }
+     *     
+     */
+    public void setFiltreringsdata(FiltreringsdataType value) {
+        this.filtreringsdata = value;
+    }
+
+    /**
+     * Gets the value of the leveranceinformation property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link LeveranceinformationType }
+     *     
+     */
+    public LeveranceinformationType getLeveranceinformation() {
+        return leveranceinformation;
+    }
+
+    /**
+     * Sets the value of the leveranceinformation property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link LeveranceinformationType }
+     *     
+     */
+    public void setLeveranceinformation(LeveranceinformationType value) {
+        this.leveranceinformation = value;
+    }
+
+    /**
+     * Gets the value of the modtagerhandling property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ModtagerhandlingType }
+     *     
+     */
+    public ModtagerhandlingType getModtagerhandling() {
+        return modtagerhandling;
+    }
+
+    /**
+     * Sets the value of the modtagerhandling property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ModtagerhandlingType }
+     *     
+     */
+    public void setModtagerhandling(ModtagerhandlingType value) {
+        this.modtagerhandling = value;
+    }
+
+    /**
+     * Gets the value of the gyldighedFra property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link TidspunktType }
+     *     
+     */
+    public TidspunktType getGyldighedFra() {
+        return gyldighedFra;
+    }
+
+    /**
+     * Sets the value of the gyldighedFra property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TidspunktType }
+     *     
+     */
+    public void setGyldighedFra(TidspunktType value) {
+        this.gyldighedFra = value;
+    }
+
+    /**
+     * Gets the value of the gyldighedTil property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link TidspunktType }
+     *     
+     */
+    public TidspunktType getGyldighedTil() {
+        return gyldighedTil;
+    }
+
+    /**
+     * Sets the value of the gyldighedTil property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TidspunktType }
+     *     
+     */
+    public void setGyldighedTil(TidspunktType value) {
+        this.gyldighedTil = value;
+    }
+
+}
